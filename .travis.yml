@@ -1,0 +1,12 @@
+services:
+  - docker
+
+env:
+  global:
+    - COLUMNS=120
+
+script:
+  - stty cols 120 # Increase console width to make greps more reliable
+  - docker build -t "$DOCKER_USERNAME"/imc-tse .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push "$DOCKER_USERNAME"/imc-tse
