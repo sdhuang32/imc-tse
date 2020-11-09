@@ -7,7 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY imports.py ./
 ENV PYTHONSTARTUP ./imports.py
 
-COPY . .
+COPY question1-2 .
+COPY question3 .
 
 # Unit test section
 #
